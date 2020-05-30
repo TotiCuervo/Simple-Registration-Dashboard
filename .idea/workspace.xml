@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c92c25a-ea6c-4549-85f9-d9d7bdde3b96" name="Default Changelist" comment="" />
+    <list default="true" id="0c92c25a-ea6c-4549-85f9-d9d7bdde3b96" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/reservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/reservation.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +174,7 @@
       <updated>1590547505083</updated>
       <workItem from="1590547506593" duration="82943000" />
       <workItem from="1590831031820" duration="467000" />
-      <workItem from="1590867654907" duration="2511000" />
+      <workItem from="1590867654907" duration="2713000" />
     </task>
     <servers />
   </component>
