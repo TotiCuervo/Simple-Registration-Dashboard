@@ -1,0 +1,252 @@
+.wrapper {
+    @apply flex relative
+}
+
+.wrapper .sidebar {
+    @apply fixed h-full text-white hidden z-20;
+    background-color: #27303f;
+    width: 280px;
+}
+
+.wrapper .sidebar.sidebar-hidden {
+    @apply hidden !important;
+}
+
+.wrapper .sidebar.sidebar-show {
+    @apply block !important;
+}
+
+@screen lg{
+    .wrapper .sidebar {
+        @apply block;
+    }
+
+}
+
+.wrapper .sidebar .sidebar-group{
+    @apply py-4;
+}
+
+.wrapper .sidebar .sidebar-group-title{
+    @apply text-yellow-500 font-bold px-8;
+    margin-bottom: 10px;
+}
+
+.wrapper .sidebar .sidebar-item {
+    @apply text-gray-500 w-full cursor-pointer font-bold py-3 px-10 transition ease-in-out duration-200 flex justify-start items-center;
+}
+
+.wrapper .sidebar .sidebar-item:focus {
+    @apply outline-none;
+}
+
+.wrapper .sidebar .sidebar-item:hover {
+    @apply  bg-white text-black;
+}
+
+.wrapper .sidebar .sidebar-item .svg-inline--fa {
+    @apply mr-4;
+}
+
+.wrapper .sidebar .sidebar-item.sidebar-item-selected {
+    @apply text-white !important;
+}
+
+.wrapper .sidebar .sidebar-item.sidebar-item-selected:hover {
+    @apply text-black !important;
+}
+
+
+/*main content*/
+
+.wrapper .mainContent {
+    @apply w-full;
+}
+
+.wrapper .mainContent.sidebar-hidden {
+    @apply ml-0 !important;
+}
+
+.wrapper .mainContent .header{
+    @apply bg-white border-b flex justify-between items-center;
+    padding: 20px 40px;
+}
+
+.wrapper .mainContent .header.sidebar-show{
+    margin-left: 280px;
+}
+
+.wrapper .mainContent .dashboard {
+    margin: 40px;
+}
+
+@screen lg{
+    .wrapper .mainContent {
+        margin-left: 280px;
+    }
+
+    .wrapper .mainContent .header.sidebar-show{
+        margin-left: 0;
+    }
+}
+
+/*Dashbboard*/
+
+.dashboard-header {
+    @apply w-full flex items-center justify-between;
+}
+
+/*searchbar*/
+.searchbar-wrapper {
+    @apply flex flex-1 items-center justify-center px-12;
+}
+
+.searchbar {
+    @apply border bg-white rounded-full pl-4 pr-2 shadow;
+}
+
+/*buttons*/
+.primary-button {
+    @apply bg-yellow-400 font-bold py-2 px-4 rounded-full transition ease-in-out duration-200;
+}
+
+.primary-button:hover {
+    @apply bg-yellow-500;
+}
+
+.primary-button:focus {
+    @apply outline-none;
+}
+
+.success-button {
+    @apply bg-green-400 font-bold py-3 rounded transition ease-in-out duration-200;
+}
+
+.success-button:hover {
+    @apply bg-green-500;
+}
+
+.success-button:focus {
+    @apply outline-none;
+}
+
+.disabled-button {
+    @apply opacity-75;
+}
+
+.success-button.disabled-button:hover {
+    @apply bg-green-400;
+}
+
+.danger-outline-button {
+    @apply border border-red-600 text-red-600 font-bold py-3 px-5 rounded transition ease-in-out duration-300;
+}
+
+.danger-outline-button:hover {
+    @apply bg-red-700 text-white outline-none;
+}
+
+.danger-button {
+    @apply bg-red-600 text-white font-bold py-3 px-5 rounded transition ease-in-out duration-300;
+}
+
+.danger-button:hover {
+    @apply bg-red-700 outline-none;
+}
+
+/*Progressbar*/
+.progressBar {
+    @apply flex flex-wrap justify-center ;
+}
+
+@screen sm {
+    .progressBar {
+        @apply flex-no-wrap;
+    }
+}
+
+.progressBar-wrapper {
+    @apply w-full mt-5 flex justify-center;
+}
+
+.progressBar-item {
+    @apply w-48 text-center p-4 text-xs flex-grow-0 flex-shrink-0 bg-gray-300;
+}
+
+.progressBar-item:focus {
+    @apply outline-none;
+}
+
+.progressBar-item.progressBar-done {
+    @apply bg-white shadow;
+}
+
+.progressBar-item.progressBar-current {
+    @apply bg-yellow-500 shadow;
+}
+
+/*form*/
+.dropdown-wrapper {
+    @apply w-full appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded py-3 px-4 leading-tight;
+}
+
+.dropdown-wrapper:focus {
+    @apply outline-none;
+}
+
+.dropdown-list {
+    @apply mt-4 relative bg-white overflow-scroll;
+    max-height: 16rem;
+}
+
+.dropdown-item {
+    @apply p-2 block text-black cursor-pointer transition duration-200 ease-in-out;
+}
+
+.dropdown-item:hover {
+    @apply bg-gray-200;
+}
+
+.form-group {
+    @apply px-3 mb-6;
+}
+
+.title-header {
+    @apply block italic tracking-wide text-gray-700 text-lg font-bold mb-3;
+}
+
+/*inputs*/
+.label-header {
+    @apply block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2;
+}
+.input-field {
+    @apply appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded py-3 px-4 leading-tight;
+}
+
+.input-field:focus {
+    @apply outline-none;
+}
+
+.error-text {
+    @apply text-red-500 text-xs italic;
+}
+
+/*card*/
+
+.card {
+    @apply rounded-lg bg-white shadow-md border;
+}
+
+.card-body {
+    @apply px-8 py-6;
+}
+
+
+
+
+
+
+
+
+
+
