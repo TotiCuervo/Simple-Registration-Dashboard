@@ -1,7 +1,7 @@
 <template>
     <div>
         <label class="label-header">Year</label>
-        <div class="relative" v-bind:class="{'z-20': clicked}">
+        <div class="relative h-12 overflow-visible" v-bind:class="{'z-20': clicked}">
             <div class="dropdown-wrapper" v-bind:class="{'border-red-500': this.filteredYears.length === 0}">
                 <div class="flex items-center justify-between">
                     <input v-model="formYear" @click="clicked = true" class="w-full appearance-none bg-transparent border-none text-gray-700 mr-3 px-2 leading-tight focus:outline-none" type="text" placeholder="Year">

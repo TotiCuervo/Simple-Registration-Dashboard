@@ -24,17 +24,25 @@
                 <label class="title-header">Vehicle</label>
                 <div class="flex flex-wrap mb-6">
                     <!--vehicle-->
-                    <div class="w-1/3 sm:w-auto sm:max-w-1/4 form-group">
+                    <div class="w-1/3 sm:w-auto form-group">
+                        <label class="label-header" >Color</label>
+                        <label>{{form.vehicleInformation.color}}</label>
+                    </div>
+                    <div class="w-1/3 sm:w-auto form-group">
                         <label class="label-header" >Year</label>
                         <label>{{form.vehicleInformation.year}}</label>
                     </div>
-                    <div class="w-1/3 sm:w-auto sm:max-w-1/4 form-group">
+                    <div class="w-1/3 sm:w-auto form-group">
                         <label class="label-header" >Make</label>
                         <label>{{form.vehicleInformation.make}}</label>
                     </div>
-                    <div class="w-1/3 sm:w-auto sm:max-w-1/4 form-group">
+                    <div class="w-1/3 sm:w-auto form-group">
                         <label class="label-header" >Model</label>
                         <label>{{form.vehicleInformation.model}}</label>
+                    </div>
+                    <div class="w-1/3 sm:w-auto form-group">
+                        <label class="label-header" >Notes</label>
+                        <label>{{form.vehicleInformation.notes}}</label>
                     </div>
                 </div>
                 <!--pickup-->

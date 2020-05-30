@@ -1,7 +1,7 @@
 <template>
     <div>
         <label class="form-header">Make</label>
-        <div class="relative" v-bind:class="{'z-20': clicked}">
+        <div class="relative h-12 overflow-visible" v-bind:class="{'z-20': clicked}">
             <div class="dropdown-wrapper" v-bind:class="{'bg-gray-200': disabled, 'border-red-500': this.errorCheck}">
                 <div class="flex items-center justify-between">
                     <input  v-model="formMake" @click="clicked = true" class="w-full appearance-none bg-transparent border-none text-gray-700 mr-3 px-2 leading-tight focus:outline-none" type="text" placeholder="Make" v-bind:disabled="disabled">

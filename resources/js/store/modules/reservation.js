@@ -10,7 +10,9 @@ function initialState() {
             vehicleInformation: {
                 'year': '',
                 'make': '',
-                'model': ''
+                'model': '',
+                'color': '',
+                'notes': ''
             },
             pickupInformation: {
                 'street': '',
@@ -52,8 +54,243 @@ function initialState() {
         availableMakes: [],
         availableYears: ['2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', '1997', '1996', '1995', '1994', '1993', '1992',],
         availableStates: ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'],
-        reservations:[{customerInformation:{'firstName':'Toti','lastName':'Cuervo','email':'cuervor14@gmail.com','phone':'9016924116'},vehicleInformation:{'year':'2011','make':'Toyota','model':'Corolla'},pickupInformation:{'street':'10034 Cameron Ridge Trail','city':'Cordova','country':'United States','state':'Tennessee','zipcode':'38016','date':new Date('Jun 01 2020'),'time':'10:30 AM'},},{customerInformation:{'firstName':'Breanna','lastName':'Owsley','email':'bnowsley@gmail.com','phone':'5555555555'},vehicleInformation:{'year':'2000','make':'Nissan','model':'Versa'},pickupInformation:{'street':'44 N. Applegate Ave','city':'Hernando','country':'United States','state':'Mississippi','zipcode':'38632','date':new Date('Jun 02 2020'),'time':'2:30 PM'},},{customerInformation:{'firstName':'Elon','lastName':'Musk','email':'elonMusk@tesla.com','phone':'5555555555'},vehicleInformation:{'year':'2020','make':'Telsa','model':'Cybertruck'},pickupInformation:{'street':'425 Prospect Rd.','city':'Bethpage','country':'United States','state':'New York','zipcode':'3811','date':new Date('Jun 03 2020'),'time':'11:30 PM'},},{customerInformation:{'firstName':'Jordan','lastName':'Belfort','email':'wolf@wallstreet.com','phone':'5555555555'},vehicleInformation:{'year':'1991','make':'Ferrari','model':'Testarossa'},pickupInformation:{'street':'425 Prospect Rd.','city':'Bethpage','country':'United States','state':'New York','zipcode':'3811','date':new Date('Jun 04 2020'),'time':'9:00 AM'},},{customerInformation:{'firstName':'Toti','lastName':'Cuervo','email':'cuervor14@gmail.com','phone':'9016924116'},vehicleInformation:{'year':'2011','make':'Toyota','model':'Corolla'},pickupInformation:{'street':'10034 Cameron Ridge Trail','city':'Cordova','country':'United States','state':'Tennessee','zipcode':'38016','date':new Date('Jun 01 2020'),'time':'10:30 AM'},},{customerInformation:{'firstName':'Breanna','lastName':'Owsley','email':'bnowsley@gmail.com','phone':'5555555555'},vehicleInformation:{'year':'2000','make':'Nissan','model':'Versa'},pickupInformation:{'street':'44 N. Applegate Ave','city':'Hernando','country':'United States','state':'Mississippi','zipcode':'38632','date':new Date('Jun 02 2020'),'time':'2:30 PM'},},{customerInformation:{'firstName':'Elon','lastName':'Musk','email':'elonMusk@tesla.com','phone':'5555555555'},vehicleInformation:{'year':'2020','make':'Telsa','model':'Cybertruck'},pickupInformation:{'street':'425 Prospect Rd.','city':'Bethpage','country':'United States','state':'New York','zipcode':'3811','date':new Date('Jun 03 2020'),'time':'11:30 PM'},},{customerInformation:{'firstName':'Breanna','lastName':'Owsley','email':'bnowsley@gmail.com','phone':'5555555555'},vehicleInformation:{'year':'2000','make':'Nissan','model':'Versa'},pickupInformation:{'street':'44 N. Applegate Ave','city':'Hernando','country':'United States','state':'Mississippi','zipcode':'38632','date':new Date('Jun 02 2020'),'time':'2:30 PM'},},{customerInformation:{'firstName':'Toti','lastName':'Cuervo','email':'cuervor14@gmail.com','phone':'9016924116'},vehicleInformation:{'year':'2011','make':'Toyota','model':'Corolla'},pickupInformation:{'street':'10034 Cameron Ridge Trail','city':'Cordova','country':'United States','state':'Tennessee','zipcode':'38016','date':new Date('Jun 01 2020'),'time':'10:30 AM'},},{customerInformation:{'firstName':'Jordan','lastName':'Belfort','email':'wolf@wallstreet.com','phone':'5555555555'},vehicleInformation:{'year':'1991','make':'Ferrari','model':'Testarossa'},pickupInformation:{'street':'425 Prospect Rd.','city':'Bethpage','country':'United States','state':'New York','zipcode':'3811','date':new Date('Jun 04 2020'),'time':'9:00 AM'},},],
+        reservations: [{
+            customerInformation: {
+                'firstName': 'Toti',
+                'lastName': 'Cuervo',
+                'email': 'cuervor14@gmail.com',
+                'phone': '9016924116'
+            },
+            vehicleInformation: {
+                'year': '2011',
+                'make': 'Toyota',
+                'model': 'Corolla',
+                'color': 'White',
+                'notes': ''
+            },
+            pickupInformation: {
+                'street': '10034 Cameron Ridge Trail',
+                'city': 'Cordova',
+                'country': 'United States',
+                'state': 'Tennessee',
+                'zipcode': '38016',
+                'date': new Date('Jun 01 2020'),
+                'time': '10:30 AM'
+            },
+        }, {
+            customerInformation: {
+                'firstName': 'Breanna',
+                'lastName': 'Owsley',
+                'email': 'bnowsley@gmail.com',
+                'phone': '5555555555'
+            },
+            vehicleInformation: {
+                'year': '2000',
+                'make': 'Nissan',
+                'model': 'Versa',
+                'color': 'Black',
+                'notes': ''
+            },
+            pickupInformation: {
+                'street': '44 N. Applegate Ave',
+                'city': 'Hernando',
+                'country': 'United States',
+                'state': 'Mississippi',
+                'zipcode': '38632',
+                'date': new Date('Jun 02 2020'),
+                'time': '2:30 PM'
+            },
+        }, {
+            customerInformation: {
+                'firstName': 'Elon',
+                'lastName': 'Musk',
+                'email': 'elonMusk@tesla.com',
+                'phone': '5555555555'
+            },
+            vehicleInformation: {
+                'year': '2020',
+                'make': 'Telsa',
+                'model': 'Cybertruck',
+                'color': 'Silver',
+                'notes': 'Front glass is shattered'
+            },
+            pickupInformation: {
+                'street': '425 Prospect Rd.',
+                'city': 'Bethpage',
+                'country': 'United States',
+                'state': 'New York',
+                'zipcode': '3811',
+                'date': new Date('Jun 03 2020'),
+                'time': '11:30 PM'
+            },
+        },
+            {
+            customerInformation: {
+                'firstName': 'Jordan',
+                'lastName': 'Belfort',
+                'email': 'wolf@wallstreet.com',
+                'phone': '5555555555'
+            },
+            vehicleInformation: {
+                'year': '1991',
+                'make': 'Ferrari',
+                'model': 'Testarossa',
+                'color': 'White',
+                'notes': 'Has racing stripes'
+            },
+            pickupInformation: {
+                'street': '425 Prospect Rd.',
+                'city': 'Bethpage',
+                'country': 'United States',
+                'state': 'New York',
+                'zipcode': '3811',
+                'date': new Date('Jun 04 2020'),
+                'time': '9:00 AM'
+            },
 
+        },
+            {
+                customerInformation: {
+                    'firstName': 'Toti',
+                    'lastName': 'Cuervo',
+                    'email': 'cuervor14@gmail.com',
+                    'phone': '9016924116'
+                },
+                vehicleInformation: {
+                    'year': '2011',
+                    'make': 'Toyota',
+                    'model': 'Corolla',
+                    'color': 'White',
+                    'notes': ''
+                },
+                pickupInformation: {
+                    'street': '10034 Cameron Ridge Trail',
+                    'city': 'Cordova',
+                    'country': 'United States',
+                    'state': 'Tennessee',
+                    'zipcode': '38016',
+                    'date': new Date('Jun 01 2020'),
+                    'time': '10:30 AM'
+                },
+            }, {
+                customerInformation: {
+                    'firstName': 'Breanna',
+                    'lastName': 'Owsley',
+                    'email': 'bnowsley@gmail.com',
+                    'phone': '5555555555'
+                },
+                vehicleInformation: {
+                    'year': '2000',
+                    'make': 'Nissan',
+                    'model': 'Versa',
+                    'color': 'Black',
+                    'notes': ''
+                },
+                pickupInformation: {
+                    'street': '44 N. Applegate Ave',
+                    'city': 'Hernando',
+                    'country': 'United States',
+                    'state': 'Mississippi',
+                    'zipcode': '38632',
+                    'date': new Date('Jun 02 2020'),
+                    'time': '2:30 PM'
+                },
+            }, {
+                customerInformation: {
+                    'firstName': 'Elon',
+                    'lastName': 'Musk',
+                    'email': 'elonMusk@tesla.com',
+                    'phone': '5555555555'
+                },
+                vehicleInformation: {
+                    'year': '2020',
+                    'make': 'Telsa',
+                    'model': 'Cybertruck',
+                    'color': 'Silver',
+                    'notes': 'Front glass is shattered'
+                },
+                pickupInformation: {
+                    'street': '425 Prospect Rd.',
+                    'city': 'Bethpage',
+                    'country': 'United States',
+                    'state': 'New York',
+                    'zipcode': '3811',
+                    'date': new Date('Jun 03 2020'),
+                    'time': '11:30 PM'
+                },
+            },
+            {
+                customerInformation: {
+                    'firstName': 'Jordan',
+                    'lastName': 'Belfort',
+                    'email': 'wolf@wallstreet.com',
+                    'phone': '5555555555'
+                },
+                vehicleInformation: {
+                    'year': '1991',
+                    'make': 'Ferrari',
+                    'model': 'Testarossa',
+                    'color': 'White',
+                    'notes': 'Has racing stripes'
+                },
+                pickupInformation: {
+                    'street': '425 Prospect Rd.',
+                    'city': 'Bethpage',
+                    'country': 'United States',
+                    'state': 'New York',
+                    'zipcode': '3811',
+                    'date': new Date('Jun 04 2020'),
+                    'time': '9:00 AM'
+                },
+
+            },
+            {
+                customerInformation: {
+                    'firstName': 'Toti',
+                    'lastName': 'Cuervo',
+                    'email': 'cuervor14@gmail.com',
+                    'phone': '9016924116'
+                },
+                vehicleInformation: {
+                    'year': '2011',
+                    'make': 'Toyota',
+                    'model': 'Corolla',
+                    'color': 'White',
+                    'notes': ''
+                },
+                pickupInformation: {
+                    'street': '10034 Cameron Ridge Trail',
+                    'city': 'Cordova',
+                    'country': 'United States',
+                    'state': 'Tennessee',
+                    'zipcode': '38016',
+                    'date': new Date('Jun 01 2020'),
+                    'time': '10:30 AM'
+                },
+            }, {
+                customerInformation: {
+                    'firstName': 'Breanna',
+                    'lastName': 'Owsley',
+                    'email': 'bnowsley@gmail.com',
+                    'phone': '5555555555'
+                },
+                vehicleInformation: {
+                    'year': '2000',
+                    'make': 'Nissan',
+                    'model': 'Versa',
+                    'color': 'Black',
+                    'notes': ''
+                },
+                pickupInformation: {
+                    'street': '44 N. Applegate Ave',
+                    'city': 'Hernando',
+                    'country': 'United States',
+                    'state': 'Mississippi',
+                    'zipcode': '38632',
+                    'date': new Date('Jun 02 2020'),
+                    'time': '2:30 PM'
+                },
+            }],
 
     }
 }
@@ -159,6 +396,13 @@ const mutations = {
     SET_FORM_VEHICLE_MODEL(state, value) {
         state.form.vehicleInformation.model = value;
     },
+    SET_FORM_VEHICLE_COLOR(state, value) {
+        console.log('made it');
+        state.form.vehicleInformation.color = value;
+    },
+    SET_FORM_VEHICLE_NOTES(state, value) {
+        state.form.vehicleInformation.notes = value;
+    },
     SET_FORM_PICKUP_STREET(state,value) {
         state.form.pickupInformation.street = value;
     },
@@ -224,7 +468,9 @@ const mutations = {
             vehicleInformation: {
                 'year': '',
                 'make': '',
-                'model': ''
+                'model': '',
+                'color': '',
+                'notes': ''
             },
             pickupInformation: {
                 'street': '',

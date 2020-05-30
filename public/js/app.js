@@ -2104,6 +2104,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2786,6 +2794,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3234,6 +3250,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3243,15 +3273,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('reservation', ['changePageByName'])), {}, {
     nextPage: function nextPage() {
-      if (this.somethingIsInvalid) {
-        this.showErrors = true;
-      } else {
-        this.$store.commit('reservation/UPDATE_COMPLETE', 'reservation-vehicle-information');
-        this.$store.commit('reservation/SET_CURRENT_PAGE_BY_NAME', 'reservation-pickup-information');
+      if (this.mandatory) {
+        if (this.somethingIsInvalid) {
+          this.showErrors = true;
+        } else {
+          this.$store.commit('reservation/UPDATE_COMPLETE', 'reservation-vehicle-information');
+          this.$store.commit('reservation/SET_CURRENT_PAGE_BY_NAME', 'reservation-pickup-information');
+        }
       }
     }
   }),
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('reservation', ['form', 'availableYears', 'availableMakes', 'availableVehicles'])), {}, {
+    color: {
+      get: function get() {
+        return this.form.vehicleInformation.color;
+      },
+      set: function set(value) {
+        this.$store.commit('reservation/SET_FORM_VEHICLE_COLOR', value);
+      }
+    },
+    notes: {
+      get: function get() {
+        return this.form.vehicleInformation.notes;
+      },
+      set: function set(value) {
+        this.$store.commit('reservation/SET_FORM_VEHICLE_NOTES', value);
+      }
+    },
     validYear: function validYear() {
       return this.availableYears.includes(this.form.vehicleInformation.year);
     },
@@ -3269,8 +3317,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return foundIt;
     },
+    validColor: function validColor() {
+      return this.color.length > 0;
+    },
+    mandatory: function mandatory() {
+      return this.validYear || this.validMake || this.validModel;
+    },
     somethingIsInvalid: function somethingIsInvalid() {
-      return !this.validYear || !this.validMake || !this.validModel;
+      return !this.validYear || !this.validMake || !this.validModel || !this.validColor;
     }
   }),
   watch: {}
@@ -39280,41 +39334,45 @@ var render = function() {
           _c("label", { staticClass: "title-header" }, [_vm._v("Vehicle")]),
           _vm._v(" "),
           _c("div", { staticClass: "flex flex-wrap mb-6" }, [
-            _c(
-              "div",
-              { staticClass: "w-1/3 sm:w-auto sm:max-w-1/4 form-group" },
-              [
-                _c("label", { staticClass: "label-header" }, [_vm._v("Year")]),
-                _vm._v(" "),
-                _c("label", [
-                  _vm._v(_vm._s(_vm.reservation.vehicleInformation.year))
-                ])
-              ]
-            ),
+            _c("div", { staticClass: "w-1/3 sm:w-auto form-group" }, [
+              _c("label", { staticClass: "label-header" }, [_vm._v("Color")]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(_vm._s(_vm.reservation.vehicleInformation.color))
+              ])
+            ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "w-1/3 sm:w-auto sm:max-w-1/4 form-group" },
-              [
-                _c("label", { staticClass: "label-header" }, [_vm._v("Make")]),
-                _vm._v(" "),
-                _c("label", [
-                  _vm._v(_vm._s(_vm.reservation.vehicleInformation.make))
-                ])
-              ]
-            ),
+            _c("div", { staticClass: "w-1/3 sm:w-auto form-group" }, [
+              _c("label", { staticClass: "label-header" }, [_vm._v("Year")]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(_vm._s(_vm.reservation.vehicleInformation.year))
+              ])
+            ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "w-1/3 sm:w-auto sm:max-w-1/4 form-group" },
-              [
-                _c("label", { staticClass: "label-header" }, [_vm._v("Model")]),
-                _vm._v(" "),
-                _c("label", [
-                  _vm._v(_vm._s(_vm.reservation.vehicleInformation.model))
-                ])
-              ]
-            )
+            _c("div", { staticClass: "w-1/3 sm:w-auto form-group" }, [
+              _c("label", { staticClass: "label-header" }, [_vm._v("Make")]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(_vm._s(_vm.reservation.vehicleInformation.make))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-1/3 sm:w-auto form-group" }, [
+              _c("label", { staticClass: "label-header" }, [_vm._v("Model")]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(_vm._s(_vm.reservation.vehicleInformation.model))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-1/3 sm:w-auto form-group" }, [
+              _c("label", { staticClass: "label-header" }, [_vm._v("Notes")]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(_vm._s(_vm.reservation.vehicleInformation.notes))
+              ])
+            ])
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "title-header" }, [_vm._v("Pickup")]),
@@ -39922,119 +39980,126 @@ var render = function() {
   return _c("div", [
     _c("label", { staticClass: "form-header" }, [_vm._v("Make")]),
     _vm._v(" "),
-    _c("div", { staticClass: "relative", class: { "z-20": _vm.clicked } }, [
-      _c(
-        "div",
-        {
-          staticClass: "dropdown-wrapper",
-          class: {
-            "bg-gray-200": _vm.disabled,
-            "border-red-500": this.errorCheck
-          }
-        },
-        [
-          _c("div", { staticClass: "flex items-center justify-between" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.formMake,
-                  expression: "formMake"
-                }
-              ],
-              staticClass:
-                "w-full appearance-none bg-transparent border-none text-gray-700 mr-3 px-2 leading-tight focus:outline-none",
-              attrs: {
-                type: "text",
-                placeholder: "Make",
-                disabled: _vm.disabled
-              },
-              domProps: { value: _vm.formMake },
-              on: {
-                click: function($event) {
-                  _vm.clicked = true
+    _c(
+      "div",
+      {
+        staticClass: "relative h-12 overflow-visible",
+        class: { "z-20": _vm.clicked }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "dropdown-wrapper",
+            class: {
+              "bg-gray-200": _vm.disabled,
+              "border-red-500": this.errorCheck
+            }
+          },
+          [
+            _c("div", { staticClass: "flex items-center justify-between" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.formMake,
+                    expression: "formMake"
+                  }
+                ],
+                staticClass:
+                  "w-full appearance-none bg-transparent border-none text-gray-700 mr-3 px-2 leading-tight focus:outline-none",
+                attrs: {
+                  type: "text",
+                  placeholder: "Make",
+                  disabled: _vm.disabled
                 },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                domProps: { value: _vm.formMake },
+                on: {
+                  click: function($event) {
+                    _vm.clicked = true
+                  },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.formMake = $event.target.value
                   }
-                  _vm.formMake = $event.target.value
                 }
-              }
-            }),
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.clicked,
+                      expression: "!clicked"
+                    }
+                  ]
+                },
+                [_c("i", { staticClass: "fas fa-angle-up" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.clicked,
+                      expression: "clicked"
+                    }
+                  ]
+                },
+                [_c("i", { staticClass: "fas fa-angle-down" })]
+              )
+            ]),
             _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.clicked,
-                    expression: "!clicked"
-                  }
-                ]
-              },
-              [_c("i", { staticClass: "fas fa-angle-up" })]
-            ),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.clicked,
-                    expression: "clicked"
-                  }
-                ]
-              },
-              [_c("i", { staticClass: "fas fa-angle-down" })]
-            )
-          ]),
-          _vm._v(" "),
-          _vm.clicked
-            ? _c("div", { staticClass: "dropdown-list" }, [
-                _c(
-                  "ul",
-                  _vm._l(this.filteredMakes, function(filteredMake) {
-                    return _c(
-                      "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.clickedMake(filteredMake)
+            _vm.clicked
+              ? _c("div", { staticClass: "dropdown-list" }, [
+                  _c(
+                    "ul",
+                    _vm._l(this.filteredMakes, function(filteredMake) {
+                      return _c(
+                        "li",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.clickedMake(filteredMake)
+                            }
                           }
-                        }
-                      },
-                      [
-                        _c("p", { staticClass: "dropdown-item" }, [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(filteredMake) +
-                              "\n                            "
-                          ),
-                          _c(
-                            "span",
-                            {
-                              staticClass: "float-right mr-4",
-                              class: { hidden: filteredMake !== _vm.formMake }
-                            },
-                            [_c("i", { staticClass: "fas fa-check" })]
-                          )
-                        ])
-                      ]
-                    )
-                  }),
-                  0
-                )
-              ])
-            : _vm._e()
-        ]
-      )
-    ]),
+                        },
+                        [
+                          _c("p", { staticClass: "dropdown-item" }, [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(filteredMake) +
+                                "\n                            "
+                            ),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "float-right mr-4",
+                                class: { hidden: filteredMake !== _vm.formMake }
+                              },
+                              [_c("i", { staticClass: "fas fa-check" })]
+                            )
+                          ])
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ])
+              : _vm._e()
+          ]
+        )
+      ]
+    ),
     _vm._v(" "),
     this.errorCheck
       ? _c("p", { staticClass: "text-red-500 text-xs italic" }, [
@@ -40080,124 +40145,131 @@ var render = function() {
   return _c("div", [
     _c("label", { staticClass: "form-header" }, [_vm._v("Model")]),
     _vm._v(" "),
-    _c("div", { staticClass: "relative", class: { "z-20": _vm.clicked } }, [
-      _c(
-        "div",
-        {
-          staticClass: "dropdown-wrapper",
-          class: {
-            "bg-gray-200": _vm.disabled,
-            "border-red-500": this.errorCheck
-          }
-        },
-        [
-          _c("div", { staticClass: "flex items-center justify-between" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.formModel,
-                  expression: "formModel"
-                }
-              ],
-              staticClass:
-                "w-full appearance-none bg-transparent border-none text-gray-700 mr-3 px-2 leading-tight focus:outline-none",
-              attrs: {
-                type: "text",
-                placeholder: "Model",
-                disabled: _vm.disabled
-              },
-              domProps: { value: _vm.formModel },
-              on: {
-                click: function($event) {
-                  _vm.clicked = true
+    _c(
+      "div",
+      {
+        staticClass: "relative h-12 overflow-visible",
+        class: { "z-20": _vm.clicked }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "dropdown-wrapper",
+            class: {
+              "bg-gray-200": _vm.disabled,
+              "border-red-500": this.errorCheck
+            }
+          },
+          [
+            _c("div", { staticClass: "flex items-center justify-between" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.formModel,
+                    expression: "formModel"
+                  }
+                ],
+                staticClass:
+                  "w-full appearance-none bg-transparent border-none text-gray-700 mr-3 px-2 leading-tight focus:outline-none",
+                attrs: {
+                  type: "text",
+                  placeholder: "Model",
+                  disabled: _vm.disabled
                 },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                domProps: { value: _vm.formModel },
+                on: {
+                  click: function($event) {
+                    _vm.clicked = true
+                  },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.formModel = $event.target.value
                   }
-                  _vm.formModel = $event.target.value
                 }
-              }
-            }),
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.clicked,
+                      expression: "!clicked"
+                    }
+                  ]
+                },
+                [_c("i", { staticClass: "fas fa-angle-up" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.clicked,
+                      expression: "clicked"
+                    }
+                  ]
+                },
+                [_c("i", { staticClass: "fas fa-angle-down" })]
+              )
+            ]),
             _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.clicked,
-                    expression: "!clicked"
-                  }
-                ]
-              },
-              [_c("i", { staticClass: "fas fa-angle-up" })]
-            ),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.clicked,
-                    expression: "clicked"
-                  }
-                ]
-              },
-              [_c("i", { staticClass: "fas fa-angle-down" })]
-            )
-          ]),
-          _vm._v(" "),
-          _vm.clicked
-            ? _c("div", { staticClass: "dropdown-list" }, [
-                _c(
-                  "ul",
-                  _vm._l(this.filteredModels, function(filteredModel) {
-                    return filteredModel.Make === _vm.formMake
-                      ? _c(
-                          "li",
-                          {
-                            on: {
-                              click: function($event) {
-                                return _vm.clickedModel(filteredModel.Model)
+            _vm.clicked
+              ? _c("div", { staticClass: "dropdown-list" }, [
+                  _c(
+                    "ul",
+                    _vm._l(this.filteredModels, function(filteredModel) {
+                      return filteredModel.Make === _vm.formMake
+                        ? _c(
+                            "li",
+                            {
+                              on: {
+                                click: function($event) {
+                                  return _vm.clickedModel(filteredModel.Model)
+                                }
                               }
-                            }
-                          },
-                          [
-                            _c("p", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(filteredModel.Model) +
-                                  "\n                            "
-                              ),
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "float-right mr-4",
-                                  class: {
-                                    hidden:
-                                      filteredModel.Model !== _vm.formModel
-                                  }
-                                },
-                                [_c("i", { staticClass: "fas fa-check" })]
-                              )
-                            ])
-                          ]
-                        )
-                      : _vm._e()
-                  }),
-                  0
-                )
-              ])
-            : _vm._e()
-        ]
-      )
-    ]),
+                            },
+                            [
+                              _c("p", { staticClass: "dropdown-item" }, [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(filteredModel.Model) +
+                                    "\n                            "
+                                ),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "float-right mr-4",
+                                    class: {
+                                      hidden:
+                                        filteredModel.Model !== _vm.formModel
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fas fa-check" })]
+                                )
+                              ])
+                            ]
+                          )
+                        : _vm._e()
+                    }),
+                    0
+                  )
+                ])
+              : _vm._e()
+          ]
+        )
+      ]
+    ),
     _vm._v(" "),
     this.errorCheck
       ? _c("p", { staticClass: "text-red-500 text-xs italic" }, [
@@ -40276,35 +40348,35 @@ var render = function() {
         _c("label", { staticClass: "title-header" }, [_vm._v("Vehicle")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-wrap mb-6" }, [
-          _c(
-            "div",
-            { staticClass: "w-1/3 sm:w-auto sm:max-w-1/4 form-group" },
-            [
-              _c("label", { staticClass: "label-header" }, [_vm._v("Year")]),
-              _vm._v(" "),
-              _c("label", [_vm._v(_vm._s(_vm.form.vehicleInformation.year))])
-            ]
-          ),
+          _c("div", { staticClass: "w-1/3 sm:w-auto form-group" }, [
+            _c("label", { staticClass: "label-header" }, [_vm._v("Color")]),
+            _vm._v(" "),
+            _c("label", [_vm._v(_vm._s(_vm.form.vehicleInformation.color))])
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "w-1/3 sm:w-auto sm:max-w-1/4 form-group" },
-            [
-              _c("label", { staticClass: "label-header" }, [_vm._v("Make")]),
-              _vm._v(" "),
-              _c("label", [_vm._v(_vm._s(_vm.form.vehicleInformation.make))])
-            ]
-          ),
+          _c("div", { staticClass: "w-1/3 sm:w-auto form-group" }, [
+            _c("label", { staticClass: "label-header" }, [_vm._v("Year")]),
+            _vm._v(" "),
+            _c("label", [_vm._v(_vm._s(_vm.form.vehicleInformation.year))])
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "w-1/3 sm:w-auto sm:max-w-1/4 form-group" },
-            [
-              _c("label", { staticClass: "label-header" }, [_vm._v("Model")]),
-              _vm._v(" "),
-              _c("label", [_vm._v(_vm._s(_vm.form.vehicleInformation.model))])
-            ]
-          )
+          _c("div", { staticClass: "w-1/3 sm:w-auto form-group" }, [
+            _c("label", { staticClass: "label-header" }, [_vm._v("Make")]),
+            _vm._v(" "),
+            _c("label", [_vm._v(_vm._s(_vm.form.vehicleInformation.make))])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-1/3 sm:w-auto form-group" }, [
+            _c("label", { staticClass: "label-header" }, [_vm._v("Model")]),
+            _vm._v(" "),
+            _c("label", [_vm._v(_vm._s(_vm.form.vehicleInformation.model))])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-1/3 sm:w-auto form-group" }, [
+            _c("label", { staticClass: "label-header" }, [_vm._v("Notes")]),
+            _vm._v(" "),
+            _c("label", [_vm._v(_vm._s(_vm.form.vehicleInformation.notes))])
+          ])
         ]),
         _vm._v(" "),
         _c("label", { staticClass: "title-header" }, [_vm._v("Pickup")]),
@@ -41020,19 +41092,96 @@ var render = function() {
         _vm._v(" "),
         _c("reservation-model-dropdown", {
           staticClass: "px-3 w-full sm:w-72 mb-6"
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "success-button mx-3 w-full sm:w-24 h-12 p-0 sm:mt-6",
-            class: { "disabled-button": _vm.somethingIsInvalid },
-            on: { click: _vm.nextPage }
-          },
-          [_vm._v("Next")]
-        )
+        })
       ],
       1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "flex flex-wrap sm:flex-no-wrap mb-6 justify-center" },
+      [
+        _c("div", { staticClass: "w-full sm:w-56 form-group px-3" }, [
+          _c("label", { staticClass: "label-header" }, [_vm._v("Color")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.color,
+                expression: "color"
+              }
+            ],
+            staticClass: "input-field",
+            class: { "border-red-500": _vm.showErrors && !_vm.validColor },
+            attrs: {
+              type: "text",
+              placeholder: "Color",
+              autocomplete: "new-password"
+            },
+            domProps: { value: _vm.color },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.color = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.showErrors && !_vm.validColor
+            ? _c("p", { staticClass: "error-text" }, [
+                _vm._v("Please check out this field.")
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-full sm:w-72 form-group px-3" }, [
+          _c("label", { staticClass: "label-header" }, [
+            _vm._v("Notes (optional)")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.notes,
+                expression: "notes"
+              }
+            ],
+            staticClass: "input-field",
+            attrs: {
+              type: "text",
+              placeholder: "Identifying features",
+              autocomplete: "new-password"
+            },
+            domProps: { value: _vm.notes },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.notes = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-full sm:w-48 form-group px-3 sm:mt-6" }, [
+          _c(
+            "button",
+            {
+              staticClass: "success-button w-full h-12",
+              class: { "disabled-button": !_vm.mandatory },
+              on: { click: _vm.nextPage }
+            },
+            [_vm._v("Next")]
+          )
+        ])
+      ]
     )
   ])
 }
@@ -41061,112 +41210,119 @@ var render = function() {
   return _c("div", [
     _c("label", { staticClass: "label-header" }, [_vm._v("Year")]),
     _vm._v(" "),
-    _c("div", { staticClass: "relative", class: { "z-20": _vm.clicked } }, [
-      _c(
-        "div",
-        {
-          staticClass: "dropdown-wrapper",
-          class: { "border-red-500": this.filteredYears.length === 0 }
-        },
-        [
-          _c("div", { staticClass: "flex items-center justify-between" }, [
-            _c("input", {
-              directives: [
+    _c(
+      "div",
+      {
+        staticClass: "relative h-12 overflow-visible",
+        class: { "z-20": _vm.clicked }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "dropdown-wrapper",
+            class: { "border-red-500": this.filteredYears.length === 0 }
+          },
+          [
+            _c("div", { staticClass: "flex items-center justify-between" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.formYear,
+                    expression: "formYear"
+                  }
+                ],
+                staticClass:
+                  "w-full appearance-none bg-transparent border-none text-gray-700 mr-3 px-2 leading-tight focus:outline-none",
+                attrs: { type: "text", placeholder: "Year" },
+                domProps: { value: _vm.formYear },
+                on: {
+                  click: function($event) {
+                    _vm.clicked = true
+                  },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.formYear = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.formYear,
-                  expression: "formYear"
-                }
-              ],
-              staticClass:
-                "w-full appearance-none bg-transparent border-none text-gray-700 mr-3 px-2 leading-tight focus:outline-none",
-              attrs: { type: "text", placeholder: "Year" },
-              domProps: { value: _vm.formYear },
-              on: {
-                click: function($event) {
-                  _vm.clicked = true
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.clicked,
+                      expression: "!clicked"
+                    }
+                  ]
                 },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.formYear = $event.target.value
-                }
-              }
-            }),
+                [_c("i", { staticClass: "fas fa-angle-up" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.clicked,
+                      expression: "clicked"
+                    }
+                  ]
+                },
+                [_c("i", { staticClass: "fas fa-angle-down" })]
+              )
+            ]),
             _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.clicked,
-                    expression: "!clicked"
-                  }
-                ]
-              },
-              [_c("i", { staticClass: "fas fa-angle-up" })]
-            ),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.clicked,
-                    expression: "clicked"
-                  }
-                ]
-              },
-              [_c("i", { staticClass: "fas fa-angle-down" })]
-            )
-          ]),
-          _vm._v(" "),
-          _vm.clicked
-            ? _c("div", { staticClass: "dropdown-list" }, [
-                _c(
-                  "ul",
-                  _vm._l(this.filteredYears, function(filteredYear) {
-                    return _c(
-                      "li",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.clickedYear(filteredYear)
+            _vm.clicked
+              ? _c("div", { staticClass: "dropdown-list" }, [
+                  _c(
+                    "ul",
+                    _vm._l(this.filteredYears, function(filteredYear) {
+                      return _c(
+                        "li",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.clickedYear(filteredYear)
+                            }
                           }
-                        }
-                      },
-                      [
-                        _c("p", { staticClass: "dropdown-item" }, [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(filteredYear) +
-                              "\n                            "
-                          ),
-                          _c(
-                            "span",
-                            {
-                              staticClass: "float-right mr-4",
-                              class: { hidden: filteredYear !== _vm.formYear }
-                            },
-                            [_c("i", { staticClass: "fas fa-check" })]
-                          )
-                        ])
-                      ]
-                    )
-                  }),
-                  0
-                )
-              ])
-            : _vm._e()
-        ]
-      )
-    ]),
+                        },
+                        [
+                          _c("p", { staticClass: "dropdown-item" }, [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(filteredYear) +
+                                "\n                            "
+                            ),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "float-right mr-4",
+                                class: { hidden: filteredYear !== _vm.formYear }
+                              },
+                              [_c("i", { staticClass: "fas fa-check" })]
+                            )
+                          ])
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ])
+              : _vm._e()
+          ]
+        )
+      ]
+    ),
     _vm._v(" "),
     this.filteredYears.length === 0
       ? _c("p", { staticClass: "text-red-500 text-xs italic" }, [
@@ -91289,7 +91445,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************************************************!*\
   !*** ./resources/js/components/reservations/ReservationVehicleInformation.vue?vue&type=template&id=53e00862&scoped=true& ***!
   \***************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -91567,7 +91723,9 @@ function initialState() {
       vehicleInformation: {
         'year': '',
         'make': '',
-        'model': ''
+        'model': '',
+        'color': '',
+        'notes': ''
       },
       pickupInformation: {
         'street': '',
@@ -91615,7 +91773,9 @@ function initialState() {
       vehicleInformation: {
         'year': '2011',
         'make': 'Toyota',
-        'model': 'Corolla'
+        'model': 'Corolla',
+        'color': 'White',
+        'notes': ''
       },
       pickupInformation: {
         'street': '10034 Cameron Ridge Trail',
@@ -91636,7 +91796,9 @@ function initialState() {
       vehicleInformation: {
         'year': '2000',
         'make': 'Nissan',
-        'model': 'Versa'
+        'model': 'Versa',
+        'color': 'Black',
+        'notes': ''
       },
       pickupInformation: {
         'street': '44 N. Applegate Ave',
@@ -91657,7 +91819,9 @@ function initialState() {
       vehicleInformation: {
         'year': '2020',
         'make': 'Telsa',
-        'model': 'Cybertruck'
+        'model': 'Cybertruck',
+        'color': 'Silver',
+        'notes': 'Front glass is shattered'
       },
       pickupInformation: {
         'street': '425 Prospect Rd.',
@@ -91678,7 +91842,9 @@ function initialState() {
       vehicleInformation: {
         'year': '1991',
         'make': 'Ferrari',
-        'model': 'Testarossa'
+        'model': 'Testarossa',
+        'color': 'White',
+        'notes': 'Has racing stripes'
       },
       pickupInformation: {
         'street': '425 Prospect Rd.',
@@ -91699,7 +91865,9 @@ function initialState() {
       vehicleInformation: {
         'year': '2011',
         'make': 'Toyota',
-        'model': 'Corolla'
+        'model': 'Corolla',
+        'color': 'White',
+        'notes': ''
       },
       pickupInformation: {
         'street': '10034 Cameron Ridge Trail',
@@ -91720,7 +91888,9 @@ function initialState() {
       vehicleInformation: {
         'year': '2000',
         'make': 'Nissan',
-        'model': 'Versa'
+        'model': 'Versa',
+        'color': 'Black',
+        'notes': ''
       },
       pickupInformation: {
         'street': '44 N. Applegate Ave',
@@ -91741,7 +91911,9 @@ function initialState() {
       vehicleInformation: {
         'year': '2020',
         'make': 'Telsa',
-        'model': 'Cybertruck'
+        'model': 'Cybertruck',
+        'color': 'Silver',
+        'notes': 'Front glass is shattered'
       },
       pickupInformation: {
         'street': '425 Prospect Rd.',
@@ -91754,24 +91926,26 @@ function initialState() {
       }
     }, {
       customerInformation: {
-        'firstName': 'Breanna',
-        'lastName': 'Owsley',
-        'email': 'bnowsley@gmail.com',
+        'firstName': 'Jordan',
+        'lastName': 'Belfort',
+        'email': 'wolf@wallstreet.com',
         'phone': '5555555555'
       },
       vehicleInformation: {
-        'year': '2000',
-        'make': 'Nissan',
-        'model': 'Versa'
+        'year': '1991',
+        'make': 'Ferrari',
+        'model': 'Testarossa',
+        'color': 'White',
+        'notes': 'Has racing stripes'
       },
       pickupInformation: {
-        'street': '44 N. Applegate Ave',
-        'city': 'Hernando',
+        'street': '425 Prospect Rd.',
+        'city': 'Bethpage',
         'country': 'United States',
-        'state': 'Mississippi',
-        'zipcode': '38632',
-        'date': new Date('Jun 02 2020'),
-        'time': '2:30 PM'
+        'state': 'New York',
+        'zipcode': '3811',
+        'date': new Date('Jun 04 2020'),
+        'time': '9:00 AM'
       }
     }, {
       customerInformation: {
@@ -91783,7 +91957,9 @@ function initialState() {
       vehicleInformation: {
         'year': '2011',
         'make': 'Toyota',
-        'model': 'Corolla'
+        'model': 'Corolla',
+        'color': 'White',
+        'notes': ''
       },
       pickupInformation: {
         'street': '10034 Cameron Ridge Trail',
@@ -91796,24 +91972,26 @@ function initialState() {
       }
     }, {
       customerInformation: {
-        'firstName': 'Jordan',
-        'lastName': 'Belfort',
-        'email': 'wolf@wallstreet.com',
+        'firstName': 'Breanna',
+        'lastName': 'Owsley',
+        'email': 'bnowsley@gmail.com',
         'phone': '5555555555'
       },
       vehicleInformation: {
-        'year': '1991',
-        'make': 'Ferrari',
-        'model': 'Testarossa'
+        'year': '2000',
+        'make': 'Nissan',
+        'model': 'Versa',
+        'color': 'Black',
+        'notes': ''
       },
       pickupInformation: {
-        'street': '425 Prospect Rd.',
-        'city': 'Bethpage',
+        'street': '44 N. Applegate Ave',
+        'city': 'Hernando',
         'country': 'United States',
-        'state': 'New York',
-        'zipcode': '3811',
-        'date': new Date('Jun 04 2020'),
-        'time': '9:00 AM'
+        'state': 'Mississippi',
+        'zipcode': '38632',
+        'date': new Date('Jun 02 2020'),
+        'time': '2:30 PM'
       }
     }]
   };
@@ -91921,6 +92099,13 @@ var mutations = {
   SET_FORM_VEHICLE_MODEL: function SET_FORM_VEHICLE_MODEL(state, value) {
     state.form.vehicleInformation.model = value;
   },
+  SET_FORM_VEHICLE_COLOR: function SET_FORM_VEHICLE_COLOR(state, value) {
+    console.log('made it');
+    state.form.vehicleInformation.color = value;
+  },
+  SET_FORM_VEHICLE_NOTES: function SET_FORM_VEHICLE_NOTES(state, value) {
+    state.form.vehicleInformation.notes = value;
+  },
   SET_FORM_PICKUP_STREET: function SET_FORM_PICKUP_STREET(state, value) {
     state.form.pickupInformation.street = value;
   },
@@ -91986,7 +92171,9 @@ var mutations = {
       vehicleInformation: {
         'year': '',
         'make': '',
-        'model': ''
+        'model': '',
+        'color': '',
+        'notes': ''
       },
       pickupInformation: {
         'street': '',

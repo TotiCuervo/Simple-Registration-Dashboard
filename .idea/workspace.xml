@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c92c25a-ea6c-4549-85f9-d9d7bdde3b96" name="Default Changelist" comment="" />
+    <list default="true" id="0c92c25a-ea6c-4549-85f9-d9d7bdde3b96" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/modals/detailModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/modals/detailModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/reservations/ReservationMakeDropdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/reservations/ReservationMakeDropdown.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/reservations/ReservationModelDropdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/reservations/ReservationModelDropdown.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/reservations/ReservationOverview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/reservations/ReservationOverview.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/reservations/ReservationVehicleInformation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/reservations/ReservationVehicleInformation.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/reservations/ReservationYearDropdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/reservations/ReservationYearDropdown.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/reservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/reservation.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -35,6 +45,9 @@
         <option value="Vue Single File Component" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -123,6 +136,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1cTLC40WSh8Lf61M2VzPCzcW5hC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/modals" />
@@ -165,12 +179,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590547505083</updated>
-      <workItem from="1590547506593" duration="82895000" />
+      <workItem from="1590547506593" duration="82943000" />
+      <workItem from="1590831031820" duration="467000" />
+      <workItem from="1590867654907" duration="2319000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -178,19 +207,16 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/resources/js/components/reservations/ReservationPickupInformation.vue</url>
           <line>101</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/resources/js/components/reservations/ReservationTimePicker.vue</url>
           <line>4</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/resources/js/components/reservations/ReservationProgressBar.vue</url>
           <line>6</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
