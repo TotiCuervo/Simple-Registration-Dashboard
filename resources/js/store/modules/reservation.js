@@ -397,7 +397,6 @@ const mutations = {
         state.form.vehicleInformation.model = value;
     },
     SET_FORM_VEHICLE_COLOR(state, value) {
-        console.log('made it');
         state.form.vehicleInformation.color = value;
     },
     SET_FORM_VEHICLE_NOTES(state, value) {
@@ -422,7 +421,6 @@ const mutations = {
         state.form.pickupInformation.date = value;
     },
     SET_FORM_PICKUP_TIME(state,value) {
-        console.log(value);
         state.form.pickupInformation.time = value;
     },
     SET_CURRENT_PAGE(state, currentPage) {
