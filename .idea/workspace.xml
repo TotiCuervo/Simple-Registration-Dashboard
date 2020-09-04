@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c92c25a-ea6c-4549-85f9-d9d7bdde3b96" name="Default Changelist" comment="" />
+    <list default="true" id="0c92c25a-ea6c-4549-85f9-d9d7bdde3b96" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +134,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/modals" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
@@ -172,6 +177,14 @@
       <workItem from="1590547506593" duration="82943000" />
       <workItem from="1590831031820" duration="467000" />
       <workItem from="1590867654907" duration="2961000" />
+      <workItem from="1590872393391" duration="196000" />
+      <workItem from="1591201683069" duration="58000" />
+      <workItem from="1591202452179" duration="279000" />
+      <workItem from="1591202960143" duration="12000" />
+      <workItem from="1591598495400" duration="1577000" />
+      <workItem from="1594936893983" duration="65000" />
+      <workItem from="1594937107413" duration="565000" />
+      <workItem from="1599197410395" duration="215000" />
     </task>
     <servers />
   </component>

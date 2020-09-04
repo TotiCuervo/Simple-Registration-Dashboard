@@ -3,7 +3,7 @@
         <!--sidebar-->
         <div class="sidebar" v-bind:class="{'sidebar-hidden': toggleNormalFull, 'sidebar-show': toggleMobileFull}">
             <div class="p-6">
-                <h2 class="text-xl uppercase mb-4 text-center italic font-bold">BizzyCar</h2>
+                <h2 class="text-xl uppercase mb-4 text-center italic font-bold">BeepCar</h2>
             </div>
             <!--Transaction-->
             <div class="sidebar-group">

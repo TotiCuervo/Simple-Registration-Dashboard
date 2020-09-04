@@ -39122,7 +39122,7 @@ var staticRenderFns = [
       _c(
         "h2",
         { staticClass: "text-xl uppercase mb-4 text-center italic font-bold" },
-        [_vm._v("BizzyCar")]
+        [_vm._v("BeepCar")]
       )
     ])
   },
@@ -91445,7 +91445,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************************************************!*\
   !*** ./resources/js/components/reservations/ReservationVehicleInformation.vue?vue&type=template&id=53e00862&scoped=true& ***!
   \***************************************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -92100,7 +92100,6 @@ var mutations = {
     state.form.vehicleInformation.model = value;
   },
   SET_FORM_VEHICLE_COLOR: function SET_FORM_VEHICLE_COLOR(state, value) {
-    console.log('made it');
     state.form.vehicleInformation.color = value;
   },
   SET_FORM_VEHICLE_NOTES: function SET_FORM_VEHICLE_NOTES(state, value) {
@@ -92125,7 +92124,6 @@ var mutations = {
     state.form.pickupInformation.date = value;
   },
   SET_FORM_PICKUP_TIME: function SET_FORM_PICKUP_TIME(state, value) {
-    console.log(value);
     state.form.pickupInformation.time = value;
   },
   SET_CURRENT_PAGE: function SET_CURRENT_PAGE(state, currentPage) {
